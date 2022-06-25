@@ -38,16 +38,17 @@ body {
     align-items: center;
 }
 
-.buttons .row div {
+.buttons .row button {
     border: 1px solid yellow;
     box-sizing: border-box;
     flex: 1;
-    background: url("button.png");
+    /*background: url("button.png");
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;
+    background-position: center;*/
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: x-large;
 }
