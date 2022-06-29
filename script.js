@@ -20,10 +20,11 @@ const commands = document.querySelectorAll(".command");
 const equals = document.querySelector(".equals");
 const clear = document.querySelector(".clear");
 
-numbers.forEach(number => number.addEventListener('click', e => fillOperands(e)));
-commands.forEach(command => command.addEventListener('click', e => selectOperator(e))); 
-equals.addEventListener('click', e => calculate(e));
+numbers.forEach(number => number.addEventListener('click', e => fillOperands(e.target.id)));
+commands.forEach(command => command.addEventListener('click', e => selectOperator(e.target.id))); 
+equals.addEventListener('click', calculate);
 clear.addEventListener('click', clearCalc);
+document.addEventListener('keypress', e => sortKeys(e.key));
 
 let initialized = false;
 let opInitialized = false;
@@ -31,37 +32,37 @@ let fillB = false;
 let calcFinished = false;
 let operator;
 
-function fillOperands(e) {
+function fillOperands(input) {
     if (calcFinished) clearCalc();
     if (!fillB) {
     if (!initialized) {
         operands.a = '';
-        operands.a += e.target.id;
+        operands.a += input;
         display.textContent = operands.a;
         initialized = true;
     } else {
-        operands.a += e.target.id;
+        operands.a += input;
         display.textContent = operands.a;
     }
     } else {
-        operands.b += e.target.id;
+        operands.b += input;
         display.textContent = operands.b;
     }
 }
 
-function selectOperator(e) {
+function selectOperator(input) {
     if (!opInitialized) {
-    operator = e.target.id;
+    operator = input;
     fillB = true;
     opInitialized = true;
     } else {
-        calculate(e);
-        operator = e.target.id;
+        calculate();
+        operator = input;
         calcFinished = false;
     }
 }
 
-function calculate(e) {
+function calculate() {
     if (operator) {
     a = parseFloat(operands.a);
     b = parseFloat(operands.b);
@@ -84,4 +85,14 @@ function clearCalc() {
     fillB = false
     calcFinished = false;
     display.textContent = '';
+}
+
+function sortKeys(key) {
+    if (!isNaN(key)) fillOperands(key);
+    else if (key === "+") selectOperator("add");
+    else if (key === "-") selectOperator("subtract");
+    else if (key === "*") selectOperator("multiply");
+    else if (key === "/") selectOperator("divide");
+    else if (key === "Enter") calculate();
+    else if (key === "C" || key === "Delete") clearCalc();
 }
