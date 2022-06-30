@@ -42,10 +42,12 @@ function fillOperands(input) {
         initialized = true;
     } else {
         operands.a += input;
+        operands.a = operands.a.substring(0, 12);
         display.textContent = operands.a;
     }
     } else {
         operands.b += input;
+        operands.b = operands.b.substring(0, 12);
         display.textContent = operands.b;
     }
 }
@@ -66,9 +68,16 @@ function calculate() {
     if (operator) {
     a = parseFloat(operands.a);
     b = parseFloat(operands.b);
-    if (!b) return;
+    if (isNaN(b)) return;
+    if (b === 0 && operator === "divide") {
+        clearCalc();
+        display.textContent = "Can't divide by zero";
+        return;
+    }
     let result = (operate(a, b, operator));
-    display.textContent = result;
+    let resultString = result.toString().slice(0, 12); 
+    display.textContent = resultString;
+    if (result > 999999999999) display.textContent = "Too large to display";
     operands.a = result;
     operands.b = '';
     operator = '';
