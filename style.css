@@ -51,7 +51,7 @@ button {
     font-size: x-large;
 }
 
-.number {
+.number, .decimal, .backspace  {
     background-color: pink;
 }
 
@@ -60,5 +60,9 @@ button {
 }
 
 .equals, .clear {
-    background-color: palegoldenrod;
+    background-color: skyblue;
+}
+
+.clicked {
+    background-color: indianred;
 }
