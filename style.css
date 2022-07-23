@@ -1,5 +1,7 @@
 html, body {
     height: 100%;
+    width: 100%;
+    font-size: 20px;
 }
 
 body {
@@ -8,10 +10,29 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    font-size: 24px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
+table {
+    /* border-collapse: collapse; */
+    border: 1px solid red;
+}
+
 .display {
+    height: 5rem;
+    font-size: 36px;
+    text-align: right;
+}
+
+table td {
+    border: 1px solid blue;
+    width: 3rem;
+    height: 3rem;
+    text-align: center;
+}
+
+/* .display {
     width: 240px;
     border: 1px solid black;
     box-sizing: border-box;
@@ -21,48 +42,52 @@ body {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-}
+} */
 
-.buttons {
+/* .buttons {
     display: flex;
     flex-direction: column;
     width: 240px;
     height: 40%;
-}
+} */
 
-.row {
+/* .row {
     display: flex;
     height: 25%;
     align-items: center;
-}
+} */
 
-button {
+/* button {
     border: 1px solid black;
     box-sizing: border-box;
     flex: 1;
-    /*background: url("button.png");
+    ackground: url("button.png");
     background-size: contain;
     background-repeat: no-repeat;
-    background-position: center;*/
+    background-position: center
     height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     font-size: x-large;
-}
+} */
 
-.number, .decimal, .backspace  {
+/* button:active {
+    background-color: cornsilk;
+} */
+
+/* .number, .decimal, .backspace  {
     background-color: pink;
-}
+} */
 
-.command {
+/* .command {
     background-color: paleturquoise;
-}
+} */
 
-.equals, .clear {
+/* .equals, .clear {
     background-color: skyblue;
-}
+} */
 
-.clicked {
+/* .clicked {
     background-color: indianred;
-}
+} */

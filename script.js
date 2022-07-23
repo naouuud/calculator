@@ -93,6 +93,7 @@ function calculate() {
     operands.b = '';
     operator = '';
     calcFinished = true;
+    includesDecimal = false;
     } else return;
 }
 
